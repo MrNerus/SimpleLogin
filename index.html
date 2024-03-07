@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Login</title>
+</head>
+<body>
+    <form onsubmit="return false;">
+        <label for="txt_Username">User Name: </label>
+        <input type="text" name="txt_Username" id="txt_Username" placeholder="Username" required>
+        <label for="txt_Password">Password: </label>
+        <input type="password" name="txt_Password" id="txt_Password" placeholder="Password" required>
+        <input type="submit" id="btn_Submit" value="Login" onclick="btn_Submit_Click()">
+        <input type="reset" id="btn_Reset" value="Clear">
+    </form>
+</body>
+<script src="./script.js"></script>
+</html>
