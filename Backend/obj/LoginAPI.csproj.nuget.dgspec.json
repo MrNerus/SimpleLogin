@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\LoginAPI.csproj": {}
+    "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\Backend\\LoginAPI.csproj": {}
   },
   "projects": {
-    "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\LoginAPI.csproj": {
+    "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\Backend\\LoginAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\LoginAPI.csproj",
+        "projectUniqueName": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\Backend\\LoginAPI.csproj",
         "projectName": "LoginAPI",
-        "projectPath": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\LoginAPI.csproj",
+        "projectPath": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\Backend\\LoginAPI.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\obj\\",
+        "outputPath": "D:\\Projs\\.NetCore\\WebAPI\\LoginAPI\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

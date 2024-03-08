@@ -8,12 +8,10 @@ namespace LoginAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : Controller
+    public class SignupController : Controller
     {
-
-        // POST: LoginController/Post
         [HttpPost]
-        public ActionResult PostLogin()
+        public IActionResult PostLogin()
         {
             // Read the request body as a string
             using var reader = new StreamReader(Request.Body, Encoding.UTF8);
@@ -23,23 +21,23 @@ namespace LoginAPI.Controllers
             var jsonDocument = JsonDocument.Parse(body);
             var root = jsonDocument.RootElement;
 
-            var credential = new LoginAPI.Model.Login_Data
+            var signup_details = new LoginAPI.Model.Signup_Data
             {
+                Name = root.GetProperty("name").GetString(),
+                Email = root.GetProperty("email").GetString(),
                 Username = root.GetProperty("username").GetString(),
                 Password = root.GetProperty("password").GetString()
             };
 
-            bool login_Status = LoginAPI.Factory.Login_Service_Handeler.Login_Valiator(credential);
-            var json_to_response = new LoginAPI.Model.Login_Response { Message = "" };
-
-            if (!login_Status)
+            int user_id = LoginAPI.Factory.Signup_Handeler.Signup(signup_details);
+            var json_to_response = new LoginAPI.Model.Signup_Response { Message = "" };
+            if (user_id == 0)
             {
-                json_to_response.Message = "Invalid Username or Password.";
-                return Unauthorized(JsonSerializer.Serialize(json_to_response));
+                json_to_response.Message = "User Creation Failed.";
+                return BadRequest(JsonSerializer.Serialize(json_to_response));
             }
-            json_to_response.Message = "Login Successful.";
+            json_to_response.Message = "Registered Successfully.";
             return Ok(JsonSerializer.Serialize(json_to_response));
         }
-
     }
 }
