@@ -2,11 +2,13 @@
 
 namespace LoginAPI.Factory
 {
-    public class Login_Service_Handeler
+    public class Signup_Handeler
     {
-        public static bool Login_Valiator(LoginAPI.Model.Login_Data data)
+        public static int Signup(LoginAPI.Model.Signup_Data data)
         {
             Console.WriteLine($"{{");
+            Console.WriteLine($"\tName: {data.Name},");
+            Console.WriteLine($"\tEmail: {data.Email},");
             Console.WriteLine($"\tUsername: {data.Username},");
             Console.WriteLine($"\tPassword: {data.Password}");
             Console.WriteLine($"}}");
@@ -21,14 +23,15 @@ namespace LoginAPI.Factory
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = $"SELECT ard_validate_creds(@username, @password)";
+                    cmd.CommandText = $"SELECT ard_create_user(@username, @password, @name, @email)";
                     cmd.Parameters.AddWithValue("username", data.Username);
                     cmd.Parameters.AddWithValue("password", data.Password);
+                    cmd.Parameters.AddWithValue("name", data.Name);
+                    cmd.Parameters.AddWithValue("email", data.Email);
 
-                    return (int)cmd.ExecuteScalar() != 0;
+                    return (int)cmd.ExecuteScalar();
                 }
             }
         }
     }
 }
-
