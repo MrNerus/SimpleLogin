@@ -6,15 +6,43 @@
     <link rel="stylesheet" href="./style.css">
     <title>Login</title>
 </head>
-<body>
+<body class="full_page">
     <form onsubmit="return false;">
-        <label for="txt_Username">User Name: </label>
-        <input type="text" name="txt_Username" id="txt_Username" placeholder="Username" required>
-        <label for="txt_Password">Password: </label>
-        <input type="password" name="txt_Password" id="txt_Password" placeholder="Password" required>
-        <input type="submit" id="btn_Submit" value="Login" onclick="btn_Submit_Click()">
-        <input type="reset" id="btn_Reset" value="Clear">
+        <h1>Signup</h1>
+
+        <label for="txt_Signup_Name">Name: </label>
+        <input type="text" name="txt_Signup_Name" id="txt_Signup_Name" placeholder="Name" required>
+
+        <label for="txt_Signup_Email">Email: </label>
+        <input type="text" name="txt_Signup_Email" id="txt_Signup_Email" placeholder="Email" required>
+
+        <label for="txt_Signup_Username">User Name: </label>
+        <input type="text" name="txt_Signup_Username" id="txt_Signup_Username" placeholder="Username" required>
+
+        <label for="txt_Signup_Password">Password: </label>
+        <input type="password" name="txt_Signup_Password" id="txt_Signup_Password" placeholder="Password" required>
+
+        <input type="submit" id="btn_Signup_Submit" value="Signup" onclick="btn_Signup_Submit_Click()">
+        <input type="reset" id="btn_Signup_Reset" value="Clear">
+
+        <p id="msg_Signup_Response"></p>
     </form>
+
+    <form onsubmit="return false;">
+        <h1>Login</h1>
+
+        <label for="txt_Login_Username">User Name: </label>
+        <input type="text" name="txt_Login_Username" id="txt_Login_Username" placeholder="Username" required>
+
+        <label for="txt_Password">Password: </label>
+        <input type="password" name="txt_Login_Password" id="txt_Login_Password" placeholder="Password" required>
+
+        <input type="submit" id="btn_Login_Submit" value="Login" onclick="btn_Login_Submit_Click()">
+        <input type="reset" id="btn_Login_Reset" value="Clear" onclick="btn_Login_Reset_Click()">
+
+        <p id="msg_Login_Response"></p>
+    </form>
+
 </body>
 <script src="./script.js"></script>
 </html>
